@@ -1,0 +1,15 @@
+{
+    "name": "my/own-framework",
+    "authors": [
+        {
+            "name": "Gürkan Güney",
+            "email": "65256779+gurofti@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}

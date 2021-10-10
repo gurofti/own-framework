@@ -18,6 +18,11 @@ class User extends DbModel
     public string $password = '';
     public string $confirmPassword = '';
 
+    public function primaryKey(): string
+    {
+        return 'id';
+    }
+
     public function save()
     {
         $this->status = self::STATUS_INACTIVE;
@@ -38,7 +43,7 @@ class User extends DbModel
         ];
     }
 
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'users';
     }

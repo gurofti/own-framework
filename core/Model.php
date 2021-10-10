@@ -15,12 +15,6 @@ abstract class Model
 
     public array $errors = [];
 
-    public function __construct()
-    {
-        var_dump($this->fillable());
-        $this->loadData($this->fillable());
-    }
-
     public function loadData($data)
     {
         foreach ($data as $key => $value) {
@@ -31,10 +25,10 @@ abstract class Model
         }
     }
 
-    public function attributes()
+/*    public function attributes()
     {
         return [];
-    }
+    }*/
 
     public function labels()
     {
@@ -47,7 +41,6 @@ abstract class Model
     }
 
     abstract public function rules(): array;
-    abstract public function fillable(): array;
 
     public function validate(): bool
     {

@@ -25,10 +25,10 @@ abstract class Model
         }
     }
 
-/*    public function attributes()
+    public function attributes()
     {
         return [];
-    }*/
+    }
 
     public function labels()
     {

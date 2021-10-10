@@ -17,7 +17,7 @@ $config = [
     ]
 ];
 
-$app = new Application(dirname(__DIR__));
+$app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [new SiteController, 'home']);
 $app->router->get('/contact', [new SiteController, 'contact']);

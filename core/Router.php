@@ -55,7 +55,7 @@ class Router
             throw new NotFoundException();
         }
         if (is_string($callback)) {
-            return $this->renderView($callback);
+            return Application::$app->view->renderView($callback);
         }
         if (is_array($callback)) {
             /** @var Controller $controller */
@@ -69,37 +69,5 @@ class Router
             }
         }
         return call_user_func($callback, $this->request, $this->response);
-    }
-
-    public function renderView($view, $params = [])
-    {
-        $layoutContent = $this->layoutContent();
-        $viewContent = $this->renderOnlyView($view, $params);
-        return str_replace('{{content}}', $viewContent, $layoutContent);
-    }
-
-    private function renderContent($viewContent)
-    {
-        $layoutContent = $this->layoutContent();
-        return str_replace('{{content}}', $viewContent, $layoutContent);
-    }
-
-    protected function layoutContent() {
-        $layout = $layout = Application::$app->layout;
-        if (Application::$app->controller) {
-            $layout = Application::$app->controller->layout;
-        }
-        ob_start();
-        include_once Application::$ROOT_DIR . "/views/layouts/$layout.php";
-        return ob_get_clean();
-    }
-
-    protected function renderOnlyView(string $view, array $params) {
-        foreach ($params as $key => $value) {
-            $$key = $value;
-        }
-        ob_start();
-        include_once Application::$ROOT_DIR . "/views/$view.php";
-        return ob_get_clean();
     }
 }

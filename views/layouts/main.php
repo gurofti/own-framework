@@ -41,8 +41,11 @@
             </ul>
             <?php else: ?>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item active">
+                    <a href="/profile" class="nav-link">Profile</a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="/logout">Welcome <?= Application::$app->user->getDisplayName() ?></a>
+                    <a class="nav-link " aria-current="page" href="/logout">Welcome <?= Application::$app->user->getDisplayName() ?> (logout)</a>
                 </li>
             </ul>
             <?php endif ?>
